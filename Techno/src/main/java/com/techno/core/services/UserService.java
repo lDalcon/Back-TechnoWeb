@@ -37,9 +37,9 @@ public class UserService {
 
 	@CrossOrigin
 	@RequestMapping(path = "/getUser", method = RequestMethod.GET)
-	public User getUser(@RequestParam String nickName) {
+	public User getUser(@RequestParam String nick, @RequestParam String pass) {
 
-		User findUser = userRepositoryDAO.findByNickName(nickName);
+		User findUser = userRepositoryDAO.findByNickNameAndPassword(nick, pass);
 		return findUser;
 
 	}

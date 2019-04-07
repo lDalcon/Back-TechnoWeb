@@ -1,0 +1,15 @@
+package com.techno.core.repositories;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.techno.core.entities.User;
+
+public interface UserRepository extends CrudRepository<User, Long>{
+	
+	public abstract User findByNickName(String nickName);
+	
+	public abstract User findById(long id);
+	
+	public abstract User findByIdAndNickName(long id, String nickName);
+
+}

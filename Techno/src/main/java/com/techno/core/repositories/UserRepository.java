@@ -9,5 +9,8 @@ public interface UserRepository extends CrudRepository<User, Long>{
 	public abstract User findByNickName(String nickName);
 	
 	public abstract User findById(long id);
+	
+	public abstract User findByIdAndNickName(long id, String nickName);
 
+	public abstract User findByNickNameAndPassword(String nick, String pass);
 }
