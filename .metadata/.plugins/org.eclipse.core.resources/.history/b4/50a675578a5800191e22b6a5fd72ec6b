@@ -1,0 +1,15 @@
+package com.thecno.core.entities;
+
+import java.io.Serializable;
+
+import javax.persistence.*;
+
+@SuppressWarnings("serial")
+@Table(name = "CATHEGORY")
+@Entity
+public class Cathegory implements Serializable{
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	long id;
+}

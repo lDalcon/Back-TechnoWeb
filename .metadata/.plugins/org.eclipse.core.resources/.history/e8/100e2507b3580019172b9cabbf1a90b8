@@ -1,0 +1,71 @@
+package com.techno.core.entities;
+
+import java.io.Serializable;
+
+import javax.persistence.*;
+
+@SuppressWarnings("serial")
+@Table(name = "Commentary")
+@Entity
+public class Commentary implements Serializable {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "com_id")
+	long id;
+
+	@Column(name = "com_content", nullable = false)
+	String content;
+
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "com_artist", nullable = false)
+	Artist artist;
+
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "com_user", nullable = false)
+	User user;
+
+	public Commentary() {
+
+	}
+
+	public Commentary(long id, String content, Artist artist, User user) {
+		super();
+		this.id = id;
+		this.content = content;
+		this.artist = artist;
+		this.user = user;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public Artist getArtist() {
+		return artist;
+	}
+
+	public void setArtist(Artist artist) {
+		this.artist = artist;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+}

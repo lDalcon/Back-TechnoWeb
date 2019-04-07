@@ -1,0 +1,12 @@
+package com.techno.core.entities;
+
+import java.io.Serializable;
+
+import javax.persistence.*;
+
+@SuppressWarnings("serial")
+@Entity
+@Table( name = "Commentary")
+public class Commentary implements Serializable{
+
+}

@@ -1,0 +1,11 @@
+package com.techno.core.repositories;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.techno.core.entities.Cathegory;
+
+public interface CathegoryRepository extends CrudRepository<Cathegory, Long>{
+	
+	public abstract Cathegory findById(long id);
+
+}

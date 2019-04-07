@@ -1,0 +1,31 @@
+package com.techno.core.entities;
+
+import java.io.Serializable;
+
+import javax.persistence.*;
+
+
+@SuppressWarnings("serial")
+@Table(name = "User")
+@Entity
+public class User implements Serializable{
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	long id;
+	
+	@Column(name = "usr_fname", nullable = false)
+	String firtName;
+	
+	@Column(name = "usr_lname", nullable = false)
+	String lastName;
+	
+	@Column(name = "usr_nick", nullable = false)
+	String nickName;
+	
+	@Column(name = "usr_pass", nullable = false)
+	String password;
+	
+	@Column(name = "usr_urlImg")
+	String img;
+}

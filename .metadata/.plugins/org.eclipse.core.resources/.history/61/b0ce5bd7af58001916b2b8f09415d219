@@ -1,0 +1,13 @@
+package com.techno.core.entities;
+
+import java.io.Serializable;
+
+import javax.persistence.*;
+
+
+@SuppressWarnings("serial")
+@Table(name = "User")
+@Entity
+public class User implements Serializable{
+
+}

@@ -1,0 +1,5 @@
+package com.thecno.core.entities;
+
+public class Publication {
+
+}

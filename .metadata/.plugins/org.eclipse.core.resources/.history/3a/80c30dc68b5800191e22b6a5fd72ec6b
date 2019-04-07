@@ -1,0 +1,24 @@
+package com.thecno.core.entities;
+
+import java.io.Serializable;
+
+import javax.persistence.*;
+
+@SuppressWarnings("serial")
+@Table(name = "Artist")
+@Entity
+public class Artist implements Serializable {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_artist")
+	long id;
+	
+	@Column(name = "name_artist")
+	String name;
+	
+	@OneToMany(fetch = FetchType.EAGER)
+	@JoinColumn(name = "cathegory")
+	Cathegory cathegory;	
+
+}

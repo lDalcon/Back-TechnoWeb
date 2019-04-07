@@ -1,0 +1,27 @@
+package com.techno.core.entities;
+
+import java.io.Serializable;
+
+import javax.persistence.*;
+
+@SuppressWarnings("serial")
+@Table(name = "Commentary")
+@Entity
+public class Commentary implements Serializable {
+
+	@Id
+	@GeneratedValue( strategy = GenerationType.IDENTITY)
+	@Column(name = "id_commentary")
+	long id;
+	
+	@Column(name = "com_content", nullable = false)
+	String content;
+	
+	@
+	@JoinColumn(name = "com_artist", nullable = false)
+	Artist artist;
+	
+	
+	@JoinColumn(name = "com_user", nullable = false)
+	User user;
+}

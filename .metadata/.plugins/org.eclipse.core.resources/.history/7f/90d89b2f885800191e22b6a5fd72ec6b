@@ -1,0 +1,13 @@
+package com.thecno.core.entities;
+
+import javax.persistence.*;
+
+@Table(name = "Artista")
+@Entity
+public class Artist {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	long id;
+
+}

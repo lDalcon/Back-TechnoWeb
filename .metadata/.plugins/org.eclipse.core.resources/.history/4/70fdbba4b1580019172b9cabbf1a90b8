@@ -1,0 +1,27 @@
+package com.techno.core.entities;
+
+import java.io.Serializable;
+
+import javax.persistence.*;
+
+@SuppressWarnings("serial")
+@Table(name = "Artist")
+@Entity
+public class Artist implements Serializable {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_artist")
+	long id;
+
+	@Column(name = "name_artist", nullable = false)
+	String name;
+
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "id_cathegory")
+	Cathegory cathegory;
+	
+	@Column(name = "")
+	String img;
+
+}

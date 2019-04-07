@@ -1,0 +1,27 @@
+package com.thecno.core.entities;
+
+import java.io.Serializable;
+
+import javax.persistence.*;
+
+@Table(name = "ARTIST")
+@Entity
+public class Artist implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID_ARTIST")
+	long id;
+	
+	@Column(name = "NAME_ARTIST")
+	String name;
+	
+	
+	
+	
+
+}

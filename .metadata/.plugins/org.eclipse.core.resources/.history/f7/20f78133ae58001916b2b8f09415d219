@@ -1,0 +1,12 @@
+package com.thecno.core.entities;
+
+import java.io.Serializable;
+
+import javax.persistence.*;
+
+@SuppressWarnings("serial")
+@Table(name = "Publication")
+@Entity
+public class Publication implements Serializable{
+
+}

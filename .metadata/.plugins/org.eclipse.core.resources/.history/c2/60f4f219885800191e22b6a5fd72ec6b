@@ -1,0 +1,10 @@
+package com.thecno.core.entities;
+
+import javax.persistence.*;
+
+@Entity
+public class Artist {
+	
+	
+
+}

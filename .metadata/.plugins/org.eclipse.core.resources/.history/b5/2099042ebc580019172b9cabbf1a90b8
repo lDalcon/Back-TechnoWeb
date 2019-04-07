@@ -1,0 +1,27 @@
+package com.techno.core.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.techno.core.entities.Artist;
+import com.techno.core.repositories.ArtistRepository;
+
+@RestController
+public class ArtistService {
+
+	@Autowired
+	private ArtistRepository artistRepositoryDAO;
+	
+	@CrossOrigin
+	@RequestMapping(path = "/getAllArtist", method = RequestMethod.GET)
+	public Iterable<Artist> getAllArtist(){
+		
+		Iterable<Artist> findAll = artistRepositoryDAO.findAll();
+		return findAll;
+	}
+	
+	@CrossOrigin
+}

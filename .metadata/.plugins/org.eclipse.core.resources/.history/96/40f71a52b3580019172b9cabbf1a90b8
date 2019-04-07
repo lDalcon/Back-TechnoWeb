@@ -1,0 +1,5 @@
+package com.techno.core.repositories;
+
+public class ArtistRepository extends{
+
+}

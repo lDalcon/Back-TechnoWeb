@@ -1,0 +1,57 @@
+package com.techno.core.services;
+
+import java.text.ParseException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.techno.core.entities.Artist;
+import com.techno.core.entities.Commentary;
+import com.techno.core.entities.User;
+import com.techno.core.repositories.ArtistRepository;
+import com.techno.core.repositories.CommentaryRepository;
+import com.techno.core.repositories.UserRepository;
+
+@RestController
+public class CommentaryService {
+
+	@Autowired
+	private CommentaryRepository commentaryRepositoryDAO;
+	
+	@Autowired
+	private ArtistRepository artistRepositoryDAO;
+	
+	@Autowired
+	private UserRepository userRepositoryDAO;
+	
+	@CrossOrigin
+	@RequestMapping(path = "/getCommentariesArtist", method = RequestMethod.GET)
+	public Iterable<Commentary> getCommentariesArtist(@RequestParam String id){
+		
+		long newId = Long.valueOf(id);
+		Artist artist = artistRepositoryDAO.findById(newId);
+		Iterable<Commentary> findCommentaries = commentaryRepositoryDAO.findByArtist(artist);
+		return findCommentaries;
+	}
+	
+	@CrossOrigin
+	public @ResponseBody String addCommentary(@RequestParam String content, @RequestParam String artist,
+			@RequestParam String user) throws ParseException{
+		
+		long idArtist = Long.valueOf(artist);
+		Artist art = artistRepositoryDAO.findById(idArtist);
+		long idUsr = Long.valueOf(user);
+		User usr = userRepositoryDAO.findById(idUsr);
+		Commentary commentary = new Commentary();
+		commentary.setArtist(art);
+		commentary.setUser(usr);
+		commentary.setContent(content);
+		commentaryRepositoryDAO.save(commentary);
+		return "";
+	}
+}
